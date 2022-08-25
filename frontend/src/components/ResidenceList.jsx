@@ -14,16 +14,7 @@ export function ResidenceList() {
     return (
       <div class="h-full w-full bg-white shadow-md">
 
-        <div class="flex h-[4rem] items-center bg-violet-500 border-2 border-black">
-          <div class="ml-5">
-            <button type="button" class="font-semibold p-2 bg-stone-300 text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50">
-              <span>Add Residence</span>
-            </button>
-          </div>
-          <div class="ml-5">
-            <span>HouseHold</span>
-          </div>
-        </div>
+        
 
         <div class=" grid grid-cols-1 w-full divide-y divide-slate-200">
           <For each={addresses()}>
