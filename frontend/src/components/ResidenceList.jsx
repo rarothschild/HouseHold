@@ -13,8 +13,13 @@ export function ResidenceList() {
 
     return (
       <div class="h-full w-full bg-white shadow-md">
-
-        
+        <div class="grid-cols-8 bg-stone-700 p-1 pl-3">
+          <div class="col-span-3">
+              <button type="button" class="font-bold p-1 bg-stone-300 text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50">
+                  <span>Add Residence</span>
+              </button>
+          </div>
+        </div>
 
         <div class=" grid grid-cols-1 w-full divide-y divide-slate-200">
           <For each={addresses()}>
@@ -31,10 +36,10 @@ export function ResidenceList() {
                     </div>
                   </div>
 
-                  <div class="basis-1/3 grid grid-rows-5 grid-cols-1 shrink-0 w-40 ">
-                    <div class="row-span-1 bg-violet-300">
+                  <div class="basis-1/4 grid grid-rows-5 grid-cols-1 shrink-0 w-40 ">
+                    <div class="row-span-1 bg-stone-400">
                       <div class="grid grid-cols-4 p-0.5">
-                        <div class="col-span-3 pl-2">
+                        <div class="col-span-3 pl-2 font-bold">
                           <h1>People</h1>
                         </div>
                         <div class="col-span-1 justify-self-end pr-1">
