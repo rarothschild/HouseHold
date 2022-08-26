@@ -12,16 +12,18 @@ from knox.auth import TokenAuthentication
 # local apps import
 from account.serializers import RegisterSerializer, LoginSerializer
 from user_profile.serializers import UserSerializer
+from user_profile.models import UserProfile
 
 # Create your views here.
 # Register API
 class RegisterView(generics.GenericAPIView):
     serializer_class = RegisterSerializer
-
+    permission_classes = (permissions.AllowAny,)
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
+        user_profile = UserProfile.objects.create(user=user, Alias=user.username)
         return Response({
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)[1]
