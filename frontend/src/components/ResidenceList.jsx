@@ -6,6 +6,7 @@ const addressBook = [
   { address: "123 Test St.", residents: "Steve McConnell" },
   { address: "456 Test St.", residents: "J.R.R. Tolkien" },
   { address: "789 Test St.", residents: "Sarah Ahmed" },
+  { address: "2137 Superior St.", residents: "Ryan" },
 ];
 
 export function ResidenceList() {
@@ -40,7 +41,7 @@ export function ResidenceList() {
                     <div class="row-span-1 bg-stone-400">
                       <div class="grid grid-cols-4 p-0.5">
                         <div class="col-span-3 pl-2 font-bold">
-                          <h1>People</h1>
+                          <h1>Tenants</h1>
                         </div>
                         <div class="col-span-1 justify-self-end pr-1">
                           <button type="button" class="pl-1 pr-1 bg-stone-300 text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50">
