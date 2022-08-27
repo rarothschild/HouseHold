@@ -14,8 +14,8 @@ export function ResidenceList() {
 
     return (
       <div class="h-full w-full bg-white shadow-md">
-        <div class="grid-cols-8 bg-stone-700 p-1 pl-3">
-          <div class="col-span-3">
+        <div class="h-12 grid grid-cols-8 bg-stone-700 p-1 pl-3 items-center">
+          <div class="col-span-3 items-center">
               <button type="button" class="font-bold p-1 bg-stone-300 text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50">
                   <span>Add Residence</span>
               </button>
