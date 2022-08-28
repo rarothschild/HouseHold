@@ -1,7 +1,8 @@
 import { Header } from './components/Header'
-import { Sidebar } from './components/Sidebar'
+import { Sidebar } from './components/Sidebar/Sidebar'
 import { ResidenceList } from './components/ResidenceList'
 import { createSignal } from "solid-js"
+
 
 function Main() {
   const [user, setUser] = createSignal([]);
