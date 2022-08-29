@@ -29,6 +29,7 @@ export function useForm({ errorClass }) {
     fields = {};
 
   const validate = (ref, accessor) => {
+    console.log('validate Start')
     const validators = accessor() || [];
     let config;
     fields[ref.name] = config = { element: ref, validators };
@@ -38,24 +39,18 @@ export function useForm({ errorClass }) {
       setErrors({ [ref.name]: undefined });
       errorClass && ref.classList.toggle(errorClass, false);
     };
+    console.log('end')
   };
 
-  const formSubmit = (ref, accessor) => {
+  const formSubmit = (ref, reqFunc, accessor) => {
+    // Upgrade with https://www.solidjs.com/examples/forms
     const callback = accessor() || (() => {});
     ref.setAttribute("novalidate", "");
+
     ref.onsubmit = async (e) => {
       e.preventDefault();
-      let errored = false;
-
-      for (const k in fields) {
-        const field = fields[k];
-        await checkValid(field, setErrors, errorClass)();
-        if (!errored && field.element.validationMessage) {
-          field.element.focus();
-          errored = true;
-        }
-      }
-      !errored && callback(ref);
+      console.log(ref)
+      console.log(reqFunc)
     };
   };
 
