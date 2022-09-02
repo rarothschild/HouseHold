@@ -12,7 +12,6 @@ from user_profile.serializers import UserSerializer
 class GetUserProfileView(APIView):
     def get(self, request, format=None):
         user = self.request.user
-        print(user)
         username = user.username
         user_profile = UserProfile.objects.get(user=user)
         user_profile = UserSerializer(user_profile)

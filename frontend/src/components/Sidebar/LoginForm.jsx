@@ -1,22 +1,15 @@
-import { createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
-import { useForm } from "../../actions/validate";
+import { login} from "../../actions/auth";
 
 export function LoginForm(props){
-    const [formData, setFormData] = createSignal({
-      username: '',
-      password: ''
-    });
-  
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const [fields, setFields] = createStore();
   
     const onSubmit = e => {
       e.preventDefault();
-      if (typeof formData.username === 'string' && formData.username.length === 0) {
-        console.log('Username is empty');
-      } else {
-        login(props.setUser, formData.username, formData.password);
-      }
+      const res = login(fields.email ,fields.password)
+      props.setUser(res)
+      //props.setShowLogin(false)
     };
   
     return(
@@ -26,10 +19,10 @@ export function LoginForm(props){
             <h1>Sign In</h1>
           </div>
           <div>
-            <input onChange={e => onChange(e)} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+            <input onInput={(e) => setFields("email", e.target.value)} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
           </div>
           <div>
-            <input onChange={e => onChange(e)} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Password" />
+            <input onInput={(e) => setFields("password", e.target.value)} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Password" />
           </div>
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Submit

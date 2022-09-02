@@ -26,8 +26,8 @@ export function NotLoggedIn(props) {
                     <span>Register</span>
                 </button>
             </div>
-            <Show when={showLogin()}><LoginForm setUser ={props.setUser} /></Show>
-            <Show when={showRegister()}><RegisterForm setUser ={props.setUser} /></Show>
+            <Show when={showLogin()}><LoginForm setUser={props.setUser} setShowLogin={setShowLogin}/></Show>
+            <Show when={showRegister()}><RegisterForm setUser={props.setUser} setShowRegister={setShowRegister}/></Show>
         </div>
     )
   }
