@@ -17,7 +17,7 @@ export const register = async ( email, full_name, password ) => {
     }
 }
 
-export const login = async ( email, password) => {
+export const login = async ( setUser, email, password) => {
     const config = {
         headers: {
             'Accept': 'application/json',
@@ -25,6 +25,11 @@ export const login = async ( email, password) => {
         }
     };
     const body = JSON.stringify({ email, password });
-    const res = await axios.post(`http://127.0.0.1:8000/api/account/login/`, body, config).then(response => response.json())
-    return res.data
+    const {data:response} = await axios.post(`http://127.0.0.1:8000/api/account/login/`, body, config)
+                            .then((response) => setUser(response.data))
+    return response
 };
+
+export const isAuthenticated = async () => {
+    
+}
