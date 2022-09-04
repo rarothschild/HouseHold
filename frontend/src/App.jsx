@@ -26,10 +26,10 @@ function Main() {
       <div class= "h-screen w-screen items-stretch overflow-y-hidden" id="main" >
         <Header />
         <div class="h-full grid grid-cols-10 gap-0">
-          <div class="col-span-2 border-r-2 z-1">
+          <div class="col-span-2 border-r-2">
             <Sidebar user={user()} setUser={setUser} />
           </div>
-          <div class="col-span-8 z-2">
+          <div class="col-span-8 p-2 bg-slate-200 h-full">
             <Routes>
               <Route path="/" component={Home} />
               <Route path="/profile" component={<Profile />} />
