@@ -5,8 +5,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 # Register Serializer
-class RegisterSerializer(serializers.ModelSerializer):
+class ResidenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'email', 'full_name', 'password')
-        extra_kwargs = {'password': {'write_only': True}}
+        fields = ('id', 'streetAddress', 'zipcode', 'city')
