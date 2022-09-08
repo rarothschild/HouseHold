@@ -1,28 +1,47 @@
-from django.shortcuts import render
-from rest_framework import generics, permissions, serializers
+from django.conf import settings
+from rest_framework import generics, permissions, serializers, status
 from rest_framework.response import Response
 
-from residence.models import Residence
-from residence.serializers import ResidenceSerializer
+from .models import Residence
+from .serializers import ResidenceSerializer
+from account.models import User
 
-# Create your views here.
+# TODO
+# - GetResidence
+# - RemoveResidence
+# - AddTenant
+# - UpdateResidence
+
 class GetResidence(generics.GenericAPIView):
     serializer_class = ResidenceSerializer
     permission_classes = [ permissions.IsAuthenticated ]
     def get(self, request, *args, **kwargs):
         return Residence.objects.all()
 
-class GetResidenceList(generics.GenericAPIView):
+class GetAllResidenceList(generics.GenericAPIView):
+    serializer_class = ResidenceSerializer
+    permission_classes = [ permissions.IsAdminUser ]
+    def get(self, request, *args, **kwargs):
+        res = Residence.objects.all()
+        serializer = self.get_serializer(res, many=True)
+        return Response(serializer.data)
+
+class GetUserResidenceList(generics.GenericAPIView):
     serializer_class = ResidenceSerializer
     permission_classes = [ permissions.IsAuthenticated ]
     def get(self, request, *args, **kwargs):
-        return Residence.objects.all()
+        res = Residence.objects.filter(canView=request.user)
+        serializer = self.get_serializer(res, many=True)
+        return Response(serializer.data)
 
 class AddResidence(generics.GenericAPIView):
     serializer_class = ResidenceSerializer
-    permission_classes = [ permissions.IsAuthenticated ]
-    def get(self, request, *args, **kwargs):
-        return Residence.objects.all()
+    permission_classes = (permissions.IsAuthenticated,)
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        residence = serializer.save(canView=User.objects.filter(pk=request.user.id))
+        return Response({'residence creation': 'successful!'},status=status.HTTP_201_CREATED)
 
 class AddTenant(generics.GenericAPIView):
     serializer_class = ResidenceSerializer

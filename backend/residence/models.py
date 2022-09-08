@@ -12,12 +12,14 @@ class Utility(models.Model):
     
 class Residence(models.Model):
     streetAddress = models.CharField(max_length=255, default='')
-    zipCode = models.IntegerField()
+    zipCode = models.IntegerField(null=True)
     city = models.CharField(max_length=255, default='')
     nickName = models.CharField(max_length=255, default='')
-    tenants = models.ManyToManyField(settings.AUTH_USER_MODEL)
-    utilities = models.ForeignKey(Utility, on_delete=models.CASCADE)
-    rent = models.IntegerField()
+    propertyOwner = models.ManyToManyField(settings.AUTH_USER_MODEL,related_name='propertyOwner')
+    tenants = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='tenants')
+    canView = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='viewers', blank=False)
+    utilities = models.ForeignKey(Utility, on_delete=models.CASCADE, null=True, blank=True)
+    rent = models.IntegerField(null=True)
     def __str__(self):
-        return self.address
+        return self.streetAddress
 
