@@ -6,4 +6,4 @@ from .models import Residence
 class ResidenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Residence
-        fields = ('id', 'streetAddress', 'zipCode', 'city')
+        fields = ('id', 'streetAddress', 'zipCode', 'city','country')

@@ -14,6 +14,7 @@ class Residence(models.Model):
     streetAddress = models.CharField(max_length=255, default='')
     zipCode = models.IntegerField(null=True)
     city = models.CharField(max_length=255, default='')
+    country = models.CharField(max_length=255, default='')
     nickName = models.CharField(max_length=255, default='')
     propertyOwner = models.ManyToManyField(settings.AUTH_USER_MODEL,related_name='propertyOwner')
     tenants = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='tenants')

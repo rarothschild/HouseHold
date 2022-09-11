@@ -8,8 +8,8 @@ export const register = async ( email, full_name, password ) => {
         }
     };
     const body = JSON.stringify({ email, full_name, password });
+    console.log(body)
     try {
-        console.log('Sending post Request')
         const res = await axios.post(`http://127.0.0.1:8000/api/account/register/`, body, config);
         return res.data
     } catch(err) {

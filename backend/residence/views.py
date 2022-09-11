@@ -38,8 +38,10 @@ class AddResidence(generics.GenericAPIView):
     serializer_class = ResidenceSerializer
     permission_classes = (permissions.IsAuthenticated,)
     def post(self, request, *args, **kwargs):
+        print(request.data)
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        print(serializer.validated_data)
         residence = serializer.save(canView=User.objects.filter(pk=request.user.id))
         return Response({'residence creation': 'successful!'},status=status.HTTP_201_CREATED)
 
