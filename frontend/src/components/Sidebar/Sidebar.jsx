@@ -1,7 +1,6 @@
 import { IsLoggedIn } from "./IsLoggedIn";
 import { NotLoggedIn } from "./NotLoggedIn";
 
-
 function NavElement(props) {
   return (
       <a href={props.href} class="w-full py-2 text-x1 bg-gray-200 md:hover:text-gray-300 duration-500 border border-gray-500">

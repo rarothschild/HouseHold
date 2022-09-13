@@ -37,7 +37,7 @@ function Main() {
             <aside class="w-64 h-full border-r-2">
               <Sidebar user={user()} setUser={setUser} />
             </aside>
-            <div class="p-2 bg-slate-200 h-full w-full">
+            <div class=" bg-slate-200  w-full">
               <Routes>
                 <Route path="/" component={Home} />
                 <Route path="/profile" component={<Profile />} />
