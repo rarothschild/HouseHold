@@ -1,4 +1,4 @@
-import { Residence } from "./Residence";
+import { ResidenceHotdog } from "./ResidencesHotdog/ResidenceHotdog";
 import { ResidenceHeader } from "./ResidenceHeader";
 
 const addressBook = [
@@ -10,13 +10,13 @@ const addressBook = [
 
 export function ResidenceList(props) {
   return (
-    <div class="h-full w-full bg-white shadow-md">
+    <div>
       <ResidenceHeader user={props.user} setResidences={props.setResidences}/>
-      <div class="h-full w-full flex flex-wrap gap-3 p-3 overflow-y-scroll">
+      <div class="flex flex-wrap h-screen	gap-3 p-3 overflow-y-scroll bg-white">
         <For each={addressBook}>
           {(place) => {
             return (
-              <Residence place={place} />
+              <ResidenceHotdog place={place} />
             );
           }}
         </For>

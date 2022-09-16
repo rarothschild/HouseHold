@@ -25,15 +25,11 @@ function Main() {
     }
   });
 
-  createEffect(() => {
-    console.log(residences())
-  });
-
   return (
     <Router>
       <div class= "h-screen w-screen items-stretch overflow-y-hidden" id="main" >
         <Header />
-          <div class="flex h-full">
+          <div class="flex h-screen">
             <aside class="w-64 h-full border-r-2">
               <Sidebar user={user()} setUser={setUser} />
             </aside>
