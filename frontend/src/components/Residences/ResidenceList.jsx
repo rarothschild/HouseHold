@@ -2,10 +2,10 @@ import { ResidenceHotdog } from "./ResidencesHotdog/ResidenceHotdog";
 import { ResidenceHeader } from "./ResidenceHeader";
 
 const addressBook = [
-  { streetAddress: "10821 Willow Reed Cir. W", city: "Parker", state:"CO" ,zipCode: "80134" },
-  { streetAddress: "41 Sunridge Ln", city: "Durango", state:"CO", zipCode: "81301" },
-  { streetAddress: "340 1/2 W. 3rd Ave", city: "Durango", state:"CO", zipCode: "81301" },
-  { streetAddress: "2137 Superior St.", city: "Bellginham", state:"WA", zipCode: "98229" },
+  { streetAddress: "10821 Willow Reed Cir. W", city: "Parker", state:"CO" ,zipCode: "80134", rent:2000 },
+  { streetAddress: "41 Sunridge Ln", city: "Durango", state:"CO", zipCode: "81301", rent:2000 },
+  { streetAddress: "340 1/2 W. 3rd Ave", city: "Durango", state:"CO", zipCode: "81301", rent:2000 },
+  { streetAddress: "2137 Superior St.", city: "Bellginham", state:"WA", zipCode: "98229", rent:2000 },
 ];
 
 export function ResidenceList(props) {
