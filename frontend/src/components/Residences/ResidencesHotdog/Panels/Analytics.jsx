@@ -17,6 +17,12 @@ const utitity3 = {
     x: [1, 2, 3, 4],
     y: [50, 40, 30],
 }
+const utitity4 = {
+    name:"Electric", 
+    payedOn:15, 
+    x: [1, 2, 3, 4],
+    y: [50, 40, 30],
+}
 
 export function Analytics(props) {
 
@@ -25,13 +31,16 @@ export function Analytics(props) {
     var layout = {
     title:'Adding Names to Line and Scatter Plot'
     };
-
-    Plotly.newPlot('ledgerPlot', data, layout);
+    
+    const myPlot = document.getElementById("ledgerPlot")
+        Plotly.newPlot('ledgerPlot', data, layout);
+    }
+    
 
     return(
         <div class="h-auto border">
             <div id="ledgerPlot">
-
+                
             </div>
         </div>
     )
