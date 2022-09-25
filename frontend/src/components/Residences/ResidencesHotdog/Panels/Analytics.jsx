@@ -17,12 +17,6 @@ const utitity3 = {
     x: [1, 2, 3, 4],
     y: [50, 40, 30],
 }
-const utitity4 = {
-    name:"Electric", 
-    payedOn:15, 
-    x: [1, 2, 3, 4],
-    y: [50, 40, 30],
-}
 
 export function Analytics(props) {
 
