@@ -26,9 +26,6 @@ export function Analytics(props) {
     title:'Adding Names to Line and Scatter Plot'
     };
     
-    const myPlot = document.getElementById("ledgerPlot")
-        Plotly.newPlot('ledgerPlot', data, layout);
-    }
     
 
     return(
