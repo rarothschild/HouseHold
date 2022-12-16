@@ -1,6 +1,3 @@
-function ExamplePics(props) {
-
-}
 
 export function Home(props) {
     return(
