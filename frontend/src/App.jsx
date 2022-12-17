@@ -35,7 +35,7 @@ function Main() {
   return (
   <div class="h-screen overflow-y-hidden">
     <Header routes={routes} route={route()} />
-    <div class="flex h-full max-w-7xl mx-auto border-x border-black">
+    <div class="flex h-[calc(100vh-5rem)] max-w-7xl mx-auto border-x border-black">
       <Sidebar user={user()} setUser={setUser} routes={routes} route={route()} setRoute={setRoute}/>
       <div class="w-full h-full">
       <Switch fallback={<div>Not Found</div>}>
