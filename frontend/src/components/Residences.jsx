@@ -1,7 +1,8 @@
 import { Show, Switch } from "solid-js";
 import { For } from "solid-js";
 import { createSignal, createEffect } from "solid-js"
-import { createServerAction$, redirect } from "solid-start/server";
+
+
 
 const addressBook = [
   { streetAddress: "10821 Willow Reed Cir. W", city: "Parker", state:"CO" ,zipCode: "80134", rent:2000 },
@@ -33,18 +34,18 @@ export function Residences(props) {
     const [residence,setResidence] = createSignal(addressBook[0])
     const [panel,setPanel] = createSignal("info")
 
-    export function routeData({ params }: RouteDataArgs) {
-        return createServerData$(
-          async ([, id], { request }) => {
-            if (!isLoggedIn(request)) {
-              throw redirect("/login");
-            }
-       
-            return prisma.students.findUnique({ where: { id } })
-          },
-          { key: () => ["students", params.id] }
-        );
-      }
+    //export function routeData({ params }: RouteDataArgs) {
+    //    return createServerData$(
+    //      async ([, id], { request }) => {
+    //        if (!isLoggedIn(request)) {
+    //          throw redirect("/login");
+    //        }
+    //   
+    //        return prisma.students.findUnique({ where: { id } })
+    //      },
+    //      { key: () => ["students", params.id] }
+    //    );
+    //  }
 
     function ResidenceTabs(props) {
         return (
